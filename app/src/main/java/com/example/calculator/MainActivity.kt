@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {     //R.layout.activity_main
     private var clickCount: Int = 0
     private lateinit var binding: ActivityMainBinding
 
+    var firstNumber: Int? = null
+    var operator: Operators? = null
+    var secondNumder: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,84 +25,68 @@ class MainActivity : AppCompatActivity() {     //R.layout.activity_main
         val view = binding.root
         setContentView(view)
 
-//        val textView: TextView = findViewById(R.id.my_text)
-//        textView.text = "мой текст"
-        binding.myText.text= "мой текст"
+        val input = binding.mainText
 
-        binding.myText.setOnClickListener {
-            Log.e("b_tag", "real massage")
-        }
-
-//        val button7: Button = findViewById(R.id.button7)
-
-        binding.button7.setOnClickListener {
-            clickCount++
-            binding.myText.text = "Кнопка была нажата $clickCount раз"
-            if (binding.myText.visibility == View.VISIBLE) {
-                binding.myText.visibility = View.INVISIBLE
-            } else {
-                binding.myText.visibility = View.VISIBLE
-            }
-        }
-
-        //  --------   setOnClickListener Layouts (сверху-вниз)
-
-        binding.button7.setOnClickListener {
-            Log.e("button_7_tag", "real massage 7")
-        }
-        binding.button8.setOnClickListener {
-            Log.d("button_8_tag", "real message 8")
-        }
-        binding.button9.setOnClickListener {
-            Log.e("button_9_tag", "real message 9")
-        }
-        binding.buttonDelenie.setOnClickListener {
-            Log.d("button_delenie_tag", "real message delenie")
-        }
+        val text: String = binding.button1.text.toString()
 
 
-        binding.button4.setOnClickListener {
-            Log.d("button_4_tag", "real message 4")
-        }
-        binding.button5.setOnClickListener {
-            Log.e("button_5_tag", "real message 5")
-        }
-        binding.button6.setOnClickListener {
-            Log.d("button_6_tag", "real message 6")
-        }
-        binding.buttonUmnozenie.setOnClickListener {
-            Log.e("button_Umnozenie_tag", "real message Umnozenie")
-        }
-
-
-        binding.button1.setOnClickListener {
-            Log.d("button_1_tag", "real message 1")
-        }
-        binding.button2.setOnClickListener {
-            Log.e("button_2_tag", "real message 2")
-        }
-        binding.button3.setOnClickListener {
-            Log.d("button_3_tag", "real message 3")
-        }
-        binding.buttonPlus.setOnClickListener {
-            Log.e("button_plus_tag", "real message plus")
-        }
-
-
-        binding.button0.setOnClickListener {
-            Log.d("button_0_tag]", "real message 0")
-        }
-        binding.buttonRavno.setOnClickListener {
-            Log.e("button_Ravno_tag", "real message Ravno")
-        }
-        binding.buttonMinus.setOnClickListener {
-            Log.d("button_Minus_tag", "real message Minus")
-        }
-
+        // -------   setOnClickListener buttons
 
         binding.buttonDelete.setOnClickListener {
-            Log.e("button_Delete_tag", "real message Delete")
+            input.text = input.text.dropLast(1)
         }
-        
+        binding.buttonRavno.setOnClickListener {
+
+        }
+
+        binding.buttonPlus.setOnClickListener {
+            input.text = input.text.toString() + binding.buttonPlus.text.toString()
+        }
+        binding.buttonMinus.setOnClickListener {
+            input.text = input.text.toString() + binding.buttonMinus.text.toString()
+        }
+        binding.buttonUmnozenie.setOnClickListener {
+            input.text = input.text.toString() + binding.buttonUmnozenie.text.toString()
+        }
+        binding.buttonDelenie.setOnClickListener {
+            input.text = input.text.toString() + binding.buttonDelenie.text.toString()
+        }
+
+        binding.button1.setOnClickListener {
+            input.text = input.text.toString() + binding.button1.text.toString()
+        }
+        binding.button2.setOnClickListener {
+            input.text = input.text.toString() + binding.button2.text.toString()
+        }
+        binding.button3.setOnClickListener {
+            input.text = input.text.toString() + binding.button3.text.toString()
+        }
+        binding.button4.setOnClickListener {
+            input.text = input.text.toString() + binding.button4.text.toString()
+        }
+        binding.button5.setOnClickListener {
+            input.text = input.text.toString() + binding.button5.text.toString()
+        }
+        binding.button6.setOnClickListener {
+            input.text = input.text.toString() + binding.button6.text.toString()
+        }
+        binding.button7.setOnClickListener {
+            input.text = input.text.toString() + binding.button7.text.toString()
+        }
+        binding.button8.setOnClickListener {
+            input.text = input.text.toString() + binding.button8.text.toString()
+        }
+        binding.button9.setOnClickListener {
+            input.text = input.text.toString() + binding.button9.text.toString()
+        }
+        binding.button0.setOnClickListener {
+            input.text = input.text.toString() + binding.button0.text.toString()
+        }
+
     }
+}
+
+enum class Operators {
+    PLUS,
+    MINUS
 }
