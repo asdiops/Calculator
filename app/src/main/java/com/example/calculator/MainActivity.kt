@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {     //R.layout.activity_main
             input.text = input.text.dropLast(1)
         }
         binding.buttonRavno.setOnClickListener {
-
+            
         }
 
         binding.buttonPlus.setOnClickListener {
